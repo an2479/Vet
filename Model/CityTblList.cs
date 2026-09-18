@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Model
+{
+    public class CityTblList:List<CityTbl>
+    {
+        public CityTblList() { }
+
+        public CityTblList(IEnumerable<CityTbl> list) : base(list) { }
+
+        public CityTblList(IEnumerable<BaseEntity> list) : base(list.Cast<CityTbl>().ToList()) { }
+    }
+}
