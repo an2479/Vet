@@ -31,5 +31,13 @@ namespace ModelView
             return entity;
         }
 
+        public static CityTbl SelectById(int id)
+        {
+            CityTblDB db = new CityTblDB();
+            CityTblList list = db.SelectAll();
+
+            CityTbl g = list.Find(item => item.Id == id);
+            return g;
+        }
     }
 }

@@ -8,7 +8,26 @@ using Model;
 
 namespace ModelView
 {
-    internal class AnimalTypeTblDB
+    public class AnimalTypeTblDB : BaseDB
     {
+        public AnimalTypeTblList SelectAll()
+        {
+            command.CommandText = $"SELECT * FROM AnimalTypeTbl";
+            AnimalTypeTblList animalTypeLst = new AnimalTypeTblList(base.Select());
+            return animalTypeLst;
+        }
+
+        public override BaseEntity NewEntity()
+        {
+            return new AnimalTypeTbl();
+        }
+
+        protected override BaseEntity CreateModel(BaseEntity entity)
+        {
+            AnimalTypeTbl c = entity as AnimalTypeTbl;
+            c.Type = reader["type"].ToString();
+            base.CreateModel(entity);
+            return entity;
+        }
     }
 }
