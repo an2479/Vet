@@ -44,6 +44,6 @@ namespace ModelView
             PersonTbl g = list.Find(item => item.Id == id);
             return g;
         }
-       
+
     }
 }

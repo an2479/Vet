@@ -30,13 +30,38 @@ namespace Test
             //    Console.WriteLine(p.City.CityName);
             //}
 
-            AiTblDB adb = new();
-            AiTblList aList = adb.SelectAll();
-            foreach (AiTbl a in aList)
-            {
-                Console.WriteLine(a.PromptTime);//
-            }
+            //AiTblDB aidb = new();
+            //AiTblList aiList = aidb.SelectAll();
+            //foreach (AiTbl ai in aiList)
+            //{
+            //    Console.WriteLine(ai.PromptTime);
+            //}
 
+            //AnimalTblDB adb = new();
+            //AnimalTblList aList = adb.SelectAll();
+            //foreach (AnimalTbl a in aList)
+            //{
+            //    Console.WriteLine(a.BirthDate);
+            //}
+
+            //DoctorTblDB ddb = new();
+            //DoctorTblList dList = ddb.SelectAll();
+            //foreach (DoctorTbl d in dList)
+            //{
+            //    Console.WriteLine(d.FirstName);
+            //}
+
+            //OwnerTblDB odb = new();
+            //OwnerTblList oList = odb.SelectAll();
+            //foreach (OwnerTbl o in oList)
+            //{
+            //    Console.WriteLine(o.FirstName);
+            //}
+
+            //לבדוק את רביו!!!
+
+
+            //מזה הדבר הזה למעלה בביס דב????????
         }
     }
 }

@@ -8,7 +8,39 @@ using Model;
 
 namespace ModelView
 {
-    internal class DoctorTblDB
+    public class DoctorTblDB : PersonTblDB
     {
+
+        public DoctorTblList SelectAll()
+        {
+            command.CommandText = $" SELECT  PersonTbl.id, PersonTbl.email, PersonTbl.city, PersonTbl.tel, PersonTbl.familyName, PersonTbl.firstName" +
+                                  $" FROM (PersonTbl INNER JOIN" +
+                                  $" DoctorTbl ON PersonTbl.id = DoctorTbl.id)";
+            DoctorTblList pLst = new DoctorTblList(base.Select());
+            return pLst;
+        }
+
+        protected override BaseEntity CreateModel(BaseEntity entity)
+        {
+            DoctorTbl d = entity as DoctorTbl;
+            base.CreateModel(entity);
+            return d;
+        }
+
+        public override BaseEntity NewEntity()
+        {
+            return new DoctorTbl();
+        }
+
+        static private DoctorTblList list = new DoctorTblList();
+
+        public static PersonTbl SelectById(int id)
+        {
+            DoctorTblDB db = new DoctorTblDB();
+            list = db.SelectAll();
+
+            PersonTbl g = list.Find(item => item.Id == id);
+            return g;
+        }
     }
 }

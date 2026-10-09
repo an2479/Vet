@@ -29,5 +29,14 @@ namespace ModelView
             base.CreateModel(entity);
             return entity;
         }
+
+        public static AnimalTypeTbl SelectById(int id)
+        {
+            AnimalTypeTblDB db = new AnimalTypeTblDB();
+            AnimalTypeTblList list = db.SelectAll();
+
+            AnimalTypeTbl g = list.Find(item => item.Id == id);
+            return g;
+        }
     }
 }
