@@ -34,12 +34,12 @@ namespace ModelView
 
         static private DoctorTblList list = new DoctorTblList();
 
-        public static PersonTbl SelectById(int id)
+        public static DoctorTbl SelectById(int id)
         {
             DoctorTblDB db = new DoctorTblDB();
             list = db.SelectAll();
 
-            PersonTbl g = list.Find(item => item.Id == id);
+            DoctorTbl g = list.Find(item => item.Id == id);
             return g;
         }
     }

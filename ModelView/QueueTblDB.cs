@@ -8,7 +8,42 @@ using Model;
 
 namespace ModelView
 {
-    internal class QueueTblDB
+    public class QueueTblDB : BaseDB
     {
+        public QueueTblList SelectAll()
+        {
+            command.CommandText = $"SELECT * FROM QueueTbl";
+            QueueTblList qLst = new QueueTblList(base.Select());
+            return qLst;
+        }
+
+        protected override BaseEntity CreateModel(BaseEntity entity)
+        {
+            QueueTbl q = entity as QueueTbl;
+            q.IdDoctor = DoctorTblDB.SelectById((int)reader["idDoctor"]);
+            q.IdOwnersAnimal = OwnersAnimalTblDB.SelectById((int)reader["id"]);
+            q.IssueOrDisease = DiseaseOrIssuesTblDB.SelectById((int)reader["id"]);
+            q.QueueDate = Convert.ToDateTime(reader["queueDate"]);
+            q.QueueHour = reader["queueHour"].ToString();
+            q.Report = reader["report"].ToString();
+            base.CreateModel(entity);
+            return q;
+        }
+
+        public override BaseEntity NewEntity()
+        {
+            return new QueueTbl();
+        }
+
+        static private QueueTblList list = new QueueTblList();
+
+        public static QueueTbl SelectById(int id)
+        {
+            QueueTblDB db = new QueueTblDB();
+            list = db.SelectAll();
+
+            QueueTbl g = list.Find(item => item.Id == id);
+            return g;
+        }
     }
 }

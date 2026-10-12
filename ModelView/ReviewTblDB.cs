@@ -8,7 +8,7 @@ using Model;
 
 namespace ModelView
 {
-    public class ReviewTblDB :BaseDB
+    public class ReviewTblDB : BaseDB
     {
         public ReviewTblList SelectAll()
         {

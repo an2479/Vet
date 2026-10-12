@@ -30,6 +30,8 @@ namespace ModelView
             return entity;
         }
 
+        static private AnimalTypeTblList list = new AnimalTypeTblList();
+
         public static AnimalTypeTbl SelectById(int id)
         {
             AnimalTypeTblDB db = new AnimalTypeTblDB();

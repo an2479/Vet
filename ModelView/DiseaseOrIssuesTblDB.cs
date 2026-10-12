@@ -29,5 +29,16 @@ namespace ModelView
             base.CreateModel(entity);
             return entity;
         }
+
+        static private DiseaseOrIssuesTblList list = new DiseaseOrIssuesTblList();
+
+        public static DiseaseOrIssuesTbl SelectById(int id)
+        {
+            DiseaseOrIssuesTblDB db = new DiseaseOrIssuesTblDB();
+            list = db.SelectAll();
+
+            DiseaseOrIssuesTbl g = list.Find(item => item.Id == id);
+            return g;
+        }
     }
 }

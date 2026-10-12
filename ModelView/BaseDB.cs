@@ -12,12 +12,13 @@ namespace ModelView
 {
     public abstract class BaseDB
     {
-        protected static string connectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\USER\\Source\\Repos\\Vet2\\ModelView\\vetac.accdb";
+        //protected static string connectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\USER\\Source\\Repos\\Vet2\\ModelView\\vetac.accdb";
 
 
-        //protected static string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source="
-        //              + System.IO.Path.GetFullPath(System.Reflection.Assembly.GetExecutingAssembly().Location
-        //              + "/../../../../../VViewModel/ExampleProjectBagrutGrades.accdb");
+
+        protected static string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source="
+               + System.IO.Path.GetFullPath(System.Reflection.Assembly.GetExecutingAssembly().Location
+               + "/../../../../../ModelView/vetac.accdb");
 
 
 

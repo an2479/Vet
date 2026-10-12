@@ -58,9 +58,36 @@ namespace Test
             //    Console.WriteLine(o.FirstName);
             //}
 
-            //לבדוק את רביו!!!
+            //ReviewTblDB rdb = new();
+            //ReviewTblList rList = rdb.SelectAll();
+            //foreach (ReviewTbl r in rList)
+            //{
+            //    Console.WriteLine(r.IdOwner.Id);
+            //}
 
+            //OwnersAnimalTblDB oadb = new();
+            //OwnersAnimalTblList oaList = oadb.SelectAll();
+            //foreach (OwnersAnimalTbl oa in oaList)
+            //{
+            //    Console.WriteLine(oa.Animal.Id);
+            //}
 
+            //QueueTblDB qdb = new();
+            //QueueTblList qList = qdb.SelectAll();
+            //foreach (QueueTbl q in qList)
+            //{
+            //    Console.WriteLine(q.QueueDate);
+            //}
+
+            ShiftsTblDB sdb = new();
+            ShiftsTblList sList = sdb.SelectAll();
+            foreach (ShiftsTbl s in sList)
+            {
+                Console.WriteLine(s.ShiftDate);
+            }
+
+            //עשיתי את השורה עם הליסט רק למי שיש SELECTBYID. זה בסדר??
+            //animaltypeDB list?
             //מזה הדבר הזה למעלה בביס דב????????
         }
     }
