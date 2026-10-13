@@ -40,5 +40,28 @@ namespace ModelView
             AnimalTypeTbl g = list.Find(item => item.Id == id);
             return g;
         }
+
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            AnimalTypeTbl a = entity as AnimalTypeTbl;
+            if (a != null)
+            {
+                string sqlStr = $"UPDATE AnimalTypeTbl SET Type=@cType WHERE ID=@id";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@cType", a.Type));
+                command.Parameters.Add(new OleDbParameter("@id", a.Id));
+            }
+        }
     }
 }

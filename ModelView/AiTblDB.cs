@@ -43,5 +43,31 @@ namespace ModelView
             AiTbl g = list.Find(item => item.Id == id);
             return g;
         }
+
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            AiTbl a = entity as AiTbl;
+            if (a != null)
+            {
+                string sqlStr = $"UPDATE AiTbl SET IdPerson=@cIdPerson, PromptTime=@cPromptTime, Message=@cMessage, Response=@cResponse WHERE ID=@id";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@IdPerson", a.IdPerson.Id));
+                command.Parameters.Add(new OleDbParameter("@cPromptTime", a.PromptTime));
+                command.Parameters.Add(new OleDbParameter("@cMessage", a.Message));
+                command.Parameters.Add(new OleDbParameter("@Response", a.Response));
+                command.Parameters.Add(new OleDbParameter("@id", a.Id));
+            }
+        }
     }
 }

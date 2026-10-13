@@ -45,5 +45,31 @@ namespace ModelView
             return g;
         }
 
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            PersonTbl p = entity as PersonTbl;
+            if (p != null)
+            {
+                string sqlStr = $"UPDATE PersonTbl SET FirstName=@cFirstName, FamilyName=@cFamilyName, Tel=@cTel, City=@city, Email=@cEmail WHERE ID=@id";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@cFirstName", p.FirstName));
+                command.Parameters.Add(new OleDbParameter("@cFamilyName", p.FamilyName));
+                command.Parameters.Add(new OleDbParameter("@cTel", p.Tel));
+                command.Parameters.Add(new OleDbParameter("@City", p.City.Id));//מספר שמזהה את העיר. כי ככה גם באקסס
+                command.Parameters.Add(new OleDbParameter("@cEmail", p.Email));
+                command.Parameters.Add(new OleDbParameter("@id", p.Id));
+            }
+        }
     }
 }

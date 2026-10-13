@@ -40,5 +40,28 @@ namespace ModelView
             DiseaseOrIssuesTbl g = list.Find(item => item.Id == id);
             return g;
         }
+
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            DiseaseOrIssuesTbl d = entity as DiseaseOrIssuesTbl;
+            if (d != null)
+            {
+                string sqlStr = $"UPDATE DiseaseOrIssuesTbl SET Disease=@cDisease WHERE ID=@id";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@cDisease", d.Disease));
+                command.Parameters.Add(new OleDbParameter("@id", d.Id));
+            }
+        }
     }
 }
