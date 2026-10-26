@@ -58,7 +58,20 @@ namespace ModelView
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            QueueTbl q = entity as QueueTbl;
+            if (q != null)
+            {
+                string sqlStr = $"UPDATE QueueTbl SET idDoctor=@cIdDoctor, idOwnersAnimal=@cIdOwnersAnimal, issueOrDisease=@cIssueOrDisease, queueDate=@cQueueDate, queueHour=@cQueueHour, report=@cReport WHERE id=@id";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@cIdDoctor", q.IdDoctor.Id));
+                command.Parameters.Add(new OleDbParameter("@cIdOwnersAnimal", q.IdOwnersAnimal.Id));
+                command.Parameters.Add(new OleDbParameter("@cIssueOrDisease", q.IssueOrDisease.Id));
+                command.Parameters.Add(new OleDbParameter("@cQueueDate", q.QueueDate));
+                command.Parameters.Add(new OleDbParameter("@cQueueHour", q.QueueHour));
+                command.Parameters.Add(new OleDbParameter("@cReport", q.Report));
+                command.Parameters.Add(new OleDbParameter("@id", q.Id));
+            }
         }
     }
 }

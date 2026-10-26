@@ -10,12 +10,17 @@ namespace Model
     {
         private OwnerTbl idOwner;
         private string description;
-        private string stars;
+        private int stars;
         private DateTime dateOfComment;
 
         public OwnerTbl IdOwner { get => idOwner; set => idOwner = value; }
         public string Description { get => description; set => description = value; }
-        public string Stars { get => stars; set => stars = value; }
         public DateTime DateOfComment { get => dateOfComment; set => dateOfComment = value; }
+        public int Stars { get => stars; set => stars = value; }
+
+        public override string ToString()
+        {
+            return IdOwner.FirstName+" "+ Description+" "+ Stars+ " "+ DateOfComment;
+        }
     }
 }

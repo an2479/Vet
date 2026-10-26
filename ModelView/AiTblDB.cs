@@ -59,13 +59,13 @@ namespace ModelView
             AiTbl a = entity as AiTbl;
             if (a != null)
             {
-                string sqlStr = $"UPDATE AiTbl SET IdPerson=@cIdPerson, PromptTime=@cPromptTime, Message=@cMessage, Response=@cResponse WHERE ID=@id";
+                string sqlStr = $"UPDATE AiTbl SET idPerson=@cIdPerson, promptTime=@cPromptTime, message=@cMessage, response=@cResponse WHERE id=@id";
 
                 command.CommandText = sqlStr;
-                command.Parameters.Add(new OleDbParameter("@IdPerson", a.IdPerson.Id));
+                command.Parameters.Add(new OleDbParameter("@cIdPerson", a.IdPerson.Id));
                 command.Parameters.Add(new OleDbParameter("@cPromptTime", a.PromptTime));
                 command.Parameters.Add(new OleDbParameter("@cMessage", a.Message));
-                command.Parameters.Add(new OleDbParameter("@Response", a.Response));
+                command.Parameters.Add(new OleDbParameter("@cResponse", a.Response));
                 command.Parameters.Add(new OleDbParameter("@id", a.Id));
             }
         }

@@ -45,7 +45,18 @@ namespace ModelView
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            ShiftsTbl s = entity as ShiftsTbl;
+            if (s != null)
+            {
+                string sqlStr = $"UPDATE ShiftsTbl SET idDoctor=@cIdDoctor, shiftDate=@cShiftDate, startTime=@cStartTime, endTime=@cEndTime WHERE id=@id";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@cIdDoctor", s.IdDoctor.Id));
+                command.Parameters.Add(new OleDbParameter("@cShiftDate", s.ShiftDate));
+                command.Parameters.Add(new OleDbParameter("@cStartTime", s.StartTime));
+                command.Parameters.Add(new OleDbParameter("@cEndTime", s.EndTime));
+                command.Parameters.Add(new OleDbParameter("@id", s.Id));
+            }
         }
 
         //static private ShiftsTblList list = new ShiftsTblList();

@@ -60,13 +60,13 @@ namespace ModelView
             PersonTbl p = entity as PersonTbl;
             if (p != null)
             {
-                string sqlStr = $"UPDATE PersonTbl SET FirstName=@cFirstName, FamilyName=@cFamilyName, Tel=@cTel, City=@city, Email=@cEmail WHERE ID=@id";
+                string sqlStr = $"UPDATE PersonTbl SET FirstName=@cFirstName, FamilyName=@cFamilyName, Tel=@cTel, City=@city, Email=@cEmail WHERE id=@id";
 
                 command.CommandText = sqlStr;
                 command.Parameters.Add(new OleDbParameter("@cFirstName", p.FirstName));
                 command.Parameters.Add(new OleDbParameter("@cFamilyName", p.FamilyName));
                 command.Parameters.Add(new OleDbParameter("@cTel", p.Tel));
-                command.Parameters.Add(new OleDbParameter("@City", p.City.Id));//מספר שמזהה את העיר. כי ככה גם באקסס
+                command.Parameters.Add(new OleDbParameter("@City", p.City.Id));
                 command.Parameters.Add(new OleDbParameter("@cEmail", p.Email));
                 command.Parameters.Add(new OleDbParameter("@id", p.Id));
             }

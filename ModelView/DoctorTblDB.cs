@@ -42,5 +42,13 @@ namespace ModelView
             DoctorTbl g = list.Find(item => item.Id == id);
             return g;
         }
+        public override void Update(BaseEntity entity)
+        {
+            DoctorTbl doc = entity as DoctorTbl;
+            if (doc != null)
+            {
+                updated.Add(new ChangeEntity(base.CreateUpdatedSQL, entity));
+            }
+        }
     }
 }

@@ -56,7 +56,7 @@ namespace ModelView
             DiseaseOrIssuesTbl d = entity as DiseaseOrIssuesTbl;
             if (d != null)
             {
-                string sqlStr = $"UPDATE DiseaseOrIssuesTbl SET Disease=@cDisease WHERE ID=@id";
+                string sqlStr = $"UPDATE DiseaseOrIssuesTbl SET Disease=@cDisease WHERE id=@id";
 
                 command.CommandText = sqlStr;
                 command.Parameters.Add(new OleDbParameter("@cDisease", d.Disease));

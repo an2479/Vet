@@ -56,7 +56,7 @@ namespace ModelView
             AnimalTypeTbl a = entity as AnimalTypeTbl;
             if (a != null)
             {
-                string sqlStr = $"UPDATE AnimalTypeTbl SET Type=@cType WHERE ID=@id";
+                string sqlStr = $"UPDATE AnimalTypeTbl SET Type=@cType WHERE id=@id";
 
                 command.CommandText = sqlStr;
                 command.Parameters.Add(new OleDbParameter("@cType", a.Type));

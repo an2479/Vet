@@ -54,7 +54,16 @@ namespace ModelView
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            AnimalTbl a = entity as AnimalTbl;
+            if (a != null)
+            {
+                string sqlStr = $"UPDATE AnimalTbl SET animalType=@cAnimalType, birthDate=@cBirthDate WHERE id=@id";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@cAnimalType", a.AnimalType.Id));
+                command.Parameters.Add(new OleDbParameter("@cBirthDate", a.BirthDate));
+                command.Parameters.Add(new OleDbParameter("@id", a.Id));
+            }
         }
     }
 }

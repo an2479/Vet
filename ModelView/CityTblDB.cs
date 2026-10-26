@@ -49,7 +49,13 @@ namespace ModelView
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            CityTbl c = entity as CityTbl;
+            if(c != null)
+            {
+                string sqlStr = $"Insert INTO CityTbl (cityName) VALUES (@cName)";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@cName", c.CityName));
+            }
         }
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
@@ -57,7 +63,7 @@ namespace ModelView
             CityTbl c = entity as CityTbl;
             if(c != null)
             {
-                string sqlStr = $"UPDATE CityTbl SET CityName=@cName WHERE ID=@id";
+                string sqlStr = $"UPDATE CityTbl SET cityName=@cName WHERE id=@id";
 
                 command.CommandText = sqlStr;
                 command.Parameters.Add(new OleDbParameter("@cName", c.CityName));

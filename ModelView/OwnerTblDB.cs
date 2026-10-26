@@ -43,5 +43,14 @@ namespace ModelView
             OwnerTbl g = list.Find(item => item.Id == id);
             return g;
         }
+        public override void Update(BaseEntity entity)
+        {
+            OwnerTbl owner = entity as OwnerTbl;
+            if (owner != null)
+            {
+                //updated.Add(new ChangeEntity(this.CreateUpdatedSQL, entity));
+                updated.Add(new ChangeEntity(base.CreateUpdatedSQL, entity));
+            }
+        }
     }
 }
