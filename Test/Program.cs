@@ -18,7 +18,7 @@ namespace Test
             //cdb.Update(cityToUpdate);
             //int x = cdb.SaveChanges();
             //Console.WriteLine($"{x} rows were updated");
-            //
+            ////
             CityTbl myCity = new CityTbl() { CityName = "Haifa" };
             cdb.Insert(myCity);
             int x = cdb.SaveChanges();
