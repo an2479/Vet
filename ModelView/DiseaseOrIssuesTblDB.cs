@@ -48,7 +48,13 @@ namespace ModelView
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            DiseaseOrIssuesTbl c = entity as DiseaseOrIssuesTbl;
+            if (c != null)
+            {
+                string sqlStr = $"Insert INTO DiseaseOrIssuesTbl (disease) VALUES (@cDisease)";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@cDisease", c.Disease));
+            }
         }
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
@@ -56,7 +62,7 @@ namespace ModelView
             DiseaseOrIssuesTbl d = entity as DiseaseOrIssuesTbl;
             if (d != null)
             {
-                string sqlStr = $"UPDATE DiseaseOrIssuesTbl SET Disease=@cDisease WHERE id=@id";
+                string sqlStr = $"UPDATE DiseaseOrIssuesTbl SET disease=@cDisease WHERE id=@id";
 
                 command.CommandText = sqlStr;
                 command.Parameters.Add(new OleDbParameter("@cDisease", d.Disease));

@@ -51,7 +51,16 @@ namespace ModelView
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            AiTbl a = entity as AiTbl;
+            if (a != null)
+            {
+                string sqlStr = $"Insert INTO AiTbl (idPerson,promptTime,message,response) VALUES (@cIdPerson,@cPromptTime,@cMessage,@cResponse)";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@cIdPerson", a.IdPerson.Id));
+                command.Parameters.Add(new OleDbParameter("@cPromptTime", a.PromptTime));
+                command.Parameters.Add(new OleDbParameter("@cMessage", a.Message));
+                command.Parameters.Add(new OleDbParameter("@cResponse", a.Response));
+            }
         }
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)

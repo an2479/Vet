@@ -52,7 +52,17 @@ namespace ModelView
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            PersonTbl p = entity as PersonTbl;
+            if (p != null)
+            {
+                string sqlStr = $"Insert INTO PersonTbl (firstName,familyName,tel,city,email) VALUES (@cFirstName,@cFamilyName,@cTel,@City,@cEmail)";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@cFirstName", p.FirstName));
+                command.Parameters.Add(new OleDbParameter("@cFamilyName", p.FamilyName));
+                command.Parameters.Add(new OleDbParameter("@cTel", p.Tel));
+                command.Parameters.Add(new OleDbParameter("@City", p.City.Id));
+                command.Parameters.Add(new OleDbParameter("@cEmail", p.Email));
+            }
         }
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
@@ -60,7 +70,7 @@ namespace ModelView
             PersonTbl p = entity as PersonTbl;
             if (p != null)
             {
-                string sqlStr = $"UPDATE PersonTbl SET FirstName=@cFirstName, FamilyName=@cFamilyName, Tel=@cTel, City=@city, Email=@cEmail WHERE id=@id";
+                string sqlStr = $"UPDATE PersonTbl SET firstName=@cFirstName, familyName=@cFamilyName, tel=@cTel, city=@City, email=@cEmail WHERE id=@id";
 
                 command.CommandText = sqlStr;
                 command.Parameters.Add(new OleDbParameter("@cFirstName", p.FirstName));

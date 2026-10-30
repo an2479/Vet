@@ -43,12 +43,33 @@ namespace ModelView
             OwnerTbl g = list.Find(item => item.Id == id);
             return g;
         }
+
+        public override void Insert(BaseEntity entity)
+        {
+            BaseEntity reqEntity = this.NewEntity();
+            if (entity != null & entity.GetType() == reqEntity.GetType())
+            {
+                inserted.Add(new ChangeEntity(base.CreateInsertdSQL, entity));
+                inserted.Add(new ChangeEntity(this.CreateInsertdSQL, entity));
+            }
+        }
+
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            OwnerTbl o = entity as OwnerTbl;
+            if (o != null)
+            {
+                string sqlStr = $"Insert INTO OwnerTbl (id) VALUES (@cId)";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@cId", o.Id));
+            }
+        }
+
         public override void Update(BaseEntity entity)
         {
             OwnerTbl owner = entity as OwnerTbl;
             if (owner != null)
             {
-                //updated.Add(new ChangeEntity(this.CreateUpdatedSQL, entity));
                 updated.Add(new ChangeEntity(base.CreateUpdatedSQL, entity));
             }
         }

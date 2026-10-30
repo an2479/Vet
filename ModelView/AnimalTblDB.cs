@@ -49,7 +49,14 @@ namespace ModelView
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            AnimalTbl a = entity as AnimalTbl;
+            if (a != null)
+            {
+                string sqlStr = $"Insert INTO AnimalTbl (animalType,birthDate) VALUES (@cAnimalType,@birthDate)";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@cAnimalType", a.AnimalType.Id));
+                command.Parameters.Add(new OleDbParameter("@birthDate", a.BirthDate));
+            }
         }
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
@@ -57,7 +64,7 @@ namespace ModelView
             AnimalTbl a = entity as AnimalTbl;
             if (a != null)
             {
-                string sqlStr = $"UPDATE AnimalTbl SET animalType=@cAnimalType, birthDate=@cBirthDate WHERE id=@id";
+                string sqlStr = $"UPDATE AnimalTbl SET animalType=@cAnimalType, birthDate=@birthDate WHERE id=@id";
 
                 command.CommandText = sqlStr;
                 command.Parameters.Add(new OleDbParameter("@cAnimalType", a.AnimalType.Id));

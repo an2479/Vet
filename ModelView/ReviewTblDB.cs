@@ -54,22 +54,6 @@ namespace ModelView
             throw new NotImplementedException();
         }
 
-        //protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
-        //{
-        //    //throw new NotImplementedException();
-        //    ReviewTbl r = entity as ReviewTbl;
-        //    if (r != null)
-        //    {
-        //        string sqlStr = $"UPDATE Review SET id_Owner=@cIdOwner, description=@cDescription, stars=@cStars, dateOfComment=@cDateOfComment " +
-        //                        $" WHERE ID=@id";
-        //        command.CommandText = sqlStr;
-        //        command.Parameters.Add(new OleDbParameter("@cIdOwner", r.IdOwner.Id));
-        //        command.Parameters.Add(new OleDbParameter("@cDescription", r.Description));
-        //        command.Parameters.Add(new OleDbParameter("@cStars", r.Stars));
-        //        command.Parameters.Add(new OleDbParameter("@cDateOfComment", r.DateOfComment));
-        //        command.Parameters.Add(new OleDbParameter("@id", r.Id));
-        //    }
-        //}
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
         {
             ReviewTbl r = entity as ReviewTbl;

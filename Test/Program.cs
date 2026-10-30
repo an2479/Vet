@@ -8,10 +8,10 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            CityTblDB cdb = new();
-            CityTblList cList = cdb.SelectAll();
-            foreach (CityTbl c in cList)
-                Console.WriteLine(c.CityName);
+            //CityTblDB cdb = new();
+            //CityTblList cList = cdb.SelectAll();
+            //foreach (CityTbl c in cList)
+            //    Console.WriteLine(c.CityName);
 
             //CityTbl cityToUpdate = cList[0];
             //cityToUpdate.CityName += "aa";
@@ -19,10 +19,10 @@ namespace Test
             //int x = cdb.SaveChanges();
             //Console.WriteLine($"{x} rows were updated");
             //////
-            CityTbl myCity = new CityTbl() { CityName = "Haifa" };
-            cdb.Insert(myCity);
-            int x = cdb.SaveChanges();
-            Console.WriteLine($"{x} rows inserted");
+            //CityTbl myCity = new CityTbl() { CityName = "Haifa" };
+            //cdb.Insert(myCity);
+            //int x = cdb.SaveChanges();
+            //Console.WriteLine($"{x} rows inserted");
 
 
             //DiseaseOrIssuesTblDB ddb = new();
@@ -30,11 +30,17 @@ namespace Test
             //foreach (DiseaseOrIssuesTbl d in dList)
             //    Console.WriteLine(d.Disease);
 
-            //DiseaseOrIssuesTbl diseaseToUpdate = dList[0];
+            //DiseaseOrIssuesTbl diseaseToUpdate = dList[10];
             //diseaseToUpdate.Disease += "ddd";
             //ddb.Update(diseaseToUpdate);
             //int y = ddb.SaveChanges();
             //Console.WriteLine($"{y} rows were updated");
+            //DiseaseOrIssuesTbl myD = new DiseaseOrIssuesTbl() { Disease = "Fracture" };
+            //ddb.Insert(myD);
+            //int x = ddb.SaveChanges();
+            //Console.WriteLine($"{x} rows inserted");
+            //foreach (DiseaseOrIssuesTbl d in dList)
+            //    Console.WriteLine(d.Disease);
 
 
 
@@ -49,6 +55,11 @@ namespace Test
             //int q = atdb.SaveChanges();
             //Console.WriteLine($"{q} rows were updated");
 
+            //AnimalTypeTbl myAni = new AnimalTypeTbl() { Type = "snake" };
+            //atdb.Insert(myAni);
+            //int x = atdb.SaveChanges();
+            //Console.WriteLine($"{x} rows inserted");
+
 
 
             //PersonTblDB pdb = new();
@@ -57,6 +68,7 @@ namespace Test
             //{
             //    Console.WriteLine(p.FirstName);
             //    Console.WriteLine(p.FamilyName);
+            //    Console.WriteLine(p.City.CityName);
             //}
 
             //PersonTbl perToUpdate = pList[0];
@@ -64,6 +76,11 @@ namespace Test
             //pdb.Update(perToUpdate);
             //int l = pdb.SaveChanges();
             //Console.WriteLine($"{l} rows were updated");
+
+            //PersonTbl myp = new PersonTbl() { FirstName = "Hadas", FamilyName = "Drori", Tel = "053829666", City = new CityTbl() { Id = 1 }, Email = "hadas@gmail.com" };
+            //pdb.Insert(myp);
+            //int x = pdb.SaveChanges();
+            //Console.WriteLine($"{x} rows inserted");
 
 
 
@@ -80,6 +97,17 @@ namespace Test
             //int f = aidb.SaveChanges();
             //Console.WriteLine($"{f} rows were updated");
 
+            //AiTbl mya = new AiTbl()
+            //{
+            //    IdPerson = new PersonTbl() { Id = 1 },////כעקרון היה צריך לעשות עם CITYLIST ולקחת ערך!! אבל בשביל הבדיקה זה בסדר
+            //    PromptTime = new DateTime(2026, 1, 12),
+            //    Message = "My message",
+            //    Response = "My response"
+            //};
+            //aidb.Insert(mya);
+            //int x = aidb.SaveChanges();
+            //Console.WriteLine($"{x} rows inserted");
+
 
 
             //AnimalTblDB adb = new();
@@ -94,10 +122,11 @@ namespace Test
             //int p = adb.SaveChanges();
             //Console.WriteLine($"{p} rows were updated");
 
-            //foreach (AnimalTbl a in aList)
-            //{
-            //    Console.WriteLine(a.BirthDate);
-            //}
+            //AnimalTbl myan = new AnimalTbl() { AnimalType = new AnimalTypeTbl() { Id = 1 }, BirthDate = new DateTime(2025, 1, 1) };
+            //adb.Insert(myan);
+            //int x = adb.SaveChanges();
+            //Console.WriteLine($"{x} rows inserted");
+
 
 
             //Console.WriteLine("----------");
@@ -117,6 +146,20 @@ namespace Test
             //    Console.WriteLine(d.FamilyName);
             //}
 
+            //DoctorTbl mydoc = new DoctorTbl()
+            //{
+
+            //    FirstName =" p.FirstName",
+            //    FamilyName = "p.FamilyName",
+            //    Tel = "p.Tel",
+            //    City = new CityTbl() { Id=2},
+            //    Email = "p.Email"
+            //};
+
+            //ddb.Insert(mydoc);
+            //int x = ddb.SaveChanges();
+            //Console.WriteLine($"{x} rows inserted");
+
 
 
             //Console.WriteLine("Owener:)");
@@ -133,19 +176,46 @@ namespace Test
             //int k = odb.SaveChanges();
             //Console.WriteLine($"{k} rows were updated");
 
-
-
-            //ReviewTblDB rdb = new();
-            //ReviewTblList rList = rdb.SelectAll();
-            //foreach (ReviewTbl r in rList)
+            //OwnerTbl myo = new OwnerTbl()
             //{
-            //    Console.WriteLine(r);
-            //}
+
+            //    FirstName = "Elodi",
+            //    FamilyName = "Maeev",
+            //    Tel = "074918304",
+            //    City = new CityTbl() { Id = 2 },
+            //    Email = "e123@gmail.com"
+            //};
+
+            //odb.Insert(myo);
+            //int x = odb.SaveChanges();
+            //Console.WriteLine($"{x} rows inserted");
+
+
+
+            ReviewTblDB rdb = new();
+            ReviewTblList rList = rdb.SelectAll();
+            foreach (ReviewTbl r in rList)
+            {
+                Console.WriteLine(r);
+            }
             //ReviewTbl rToUpdate = rList[0];
             //rToUpdate.Description += "bb";
             //rdb.Update(rToUpdate);
             //int k = rdb.SaveChanges();
             //Console.WriteLine($"{k} rows were updated");
+            
+            //AiTbl mya = new AiTbl()
+            //{
+            //    IdPerson = new PersonTbl() { Id = 1 },////כעקרון היה צריך לעשות עם CITYLIST ולקחת ערך!! אבל בשביל הבדיקה זה בסדר
+            //    PromptTime = new DateTime(2026, 1, 12),
+            //    Message = "My message",
+            //    Response = "My response"
+            //};
+            //aidb.Insert(mya);
+            //int x = aidb.SaveChanges();
+            //Console.WriteLine($"{x} rows inserted");
+
+
 
             //OwnersAnimalTblDB oadb = new();
             //OwnersAnimalTblList oaList = oadb.SelectAll();
@@ -187,7 +257,7 @@ namespace Test
             //int k = sdb.SaveChanges();
             //Console.WriteLine($"{k} rows were updated");
 
-
+            //DOC INSERT CHECK!!!!!!!!!!!!!
             //עשיתי את השורה עם הליסט רק למי שיש SELECTBYID. זה בסדר??
             //animaltypeDB list?
             //מזה הדבר הזה למעלה בביס דב????????
