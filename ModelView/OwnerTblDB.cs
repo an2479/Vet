@@ -13,7 +13,7 @@ namespace ModelView
     {
         public OwnerTblList SelectAll()
         {
-            command.CommandText = $" SELECT PersonTbl.id, PersonTbl.firstName, PersonTbl.familyName, PersonTbl.tel, PersonTbl.email, PersonTbl.city" +
+            command.CommandText = $" SELECT PersonTbl.id, PersonTbl.firstName, PersonTbl.familyName, PersonTbl.tel, PersonTbl.email, PersonTbl.city, PersonTbl.isActive" +
                                   $" FROM (OwnerTbl INNER JOIN" +
                                   $" PersonTbl ON OwnerTbl.id = PersonTbl.id)";
 
@@ -60,6 +60,16 @@ namespace ModelView
             if (o != null)
             {
                 string sqlStr = $"Insert INTO OwnerTbl (id) VALUES (@cId)";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@cId", o.Id));
+            }
+        }
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            OwnerTbl o = entity as OwnerTbl;
+            if (o != null)
+            {
+                string sqlStr = $"Update PersonTbl SET isActive={false} WHERE id=@cId";
                 command.CommandText = sqlStr;
                 command.Parameters.Add(new OleDbParameter("@cId", o.Id));
             }

@@ -46,7 +46,15 @@ namespace ModelView
 
         protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            AiTbl a = entity as AiTbl;
+
+            if (a != null)
+            {
+                string sqlStr = $"DELETE FROM AiTbl WHERE id=@pid";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@pid", a.Id));
+            }
         }
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)

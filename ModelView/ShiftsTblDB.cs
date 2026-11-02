@@ -35,12 +35,33 @@ namespace ModelView
 
         protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            ShiftsTbl s = entity as ShiftsTbl;
+
+            if (s != null)
+            {
+                string sqlStr = $"DELETE FROM ShiftsTbl WHERE id=@pid";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@pid", s.Id));
+            }
         }
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            ShiftsTbl s = entity as ShiftsTbl;
+
+            if (s != null)
+            {
+                string sqlStr = "INSERT INTO ShiftsTbl (idDoctor, shiftDate, startTime, endTime) " +
+                    "VALUES (@cIdDoctor, @cShiftDate, @cStartTime, @cEndTime)";
+
+                command.CommandText = sqlStr;
+
+                command.Parameters.Add(new OleDbParameter("@cIdDoctor", s.IdDoctor.Id));
+                command.Parameters.Add(new OleDbParameter("@cShiftDate", s.ShiftDate));
+                command.Parameters.Add(new OleDbParameter("@cStartTime", s.StartTime));
+                command.Parameters.Add(new OleDbParameter("@cEndTime", s.EndTime));
+            }
         }
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
@@ -59,7 +80,7 @@ namespace ModelView
             }
         }
 
-        //static private ShiftsTblList list = new ShiftsTblList();
+        static private ShiftsTblList list = new ShiftsTblList();
 
         //public static ShiftsTbl SelectById(int id)
         //{

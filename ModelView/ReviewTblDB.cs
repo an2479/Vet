@@ -46,12 +46,29 @@ namespace ModelView
 
         protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            ReviewTbl r = entity as ReviewTbl;
+
+            if (r != null)
+            {
+                string sqlStr = $"DELETE FROM ReviewTbl WHERE id=@pid";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@pid", r.Id));
+            }
         }
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            ReviewTbl r = entity as ReviewTbl;
+            if (r != null)
+            {
+                string sqlStr = $"Insert INTO ReviewTbl (idOwner,description,stars,dateOfComment) VALUES (@cIdOwner,@cDescription,@cStars,@cDateOfComment)";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@cIdOwner", r.IdOwner.Id));
+                command.Parameters.Add(new OleDbParameter("@cDescription", r.Description));
+                command.Parameters.Add(new OleDbParameter("@cStars", r.Stars));
+                command.Parameters.Add(new OleDbParameter("@cDateOfComment", r.DateOfComment));
+            }
         }
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)

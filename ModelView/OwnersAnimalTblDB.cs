@@ -44,12 +44,27 @@ namespace ModelView
 
         protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            OwnersAnimalTbl oa = entity as OwnersAnimalTbl;
+
+            if (oa != null)
+            {
+                string sqlStr = $"DELETE FROM OwnersAnimalTbl WHERE id=@pid";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@pid", oa.Id));
+            }
         }
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            OwnersAnimalTbl r = entity as OwnersAnimalTbl;
+            if (r != null)
+            {
+                string sqlStr = $"Insert INTO OwnersAnimalTbl (owner,animal) VALUES (@cOwner,@cAnimal)";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@cOwner", r.Owner.Id));
+                command.Parameters.Add(new OleDbParameter("@cAnimal", r.Animal.Id));
+            }
         }
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)

@@ -8,8 +8,8 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            //CityTblDB cdb = new();
-            //CityTblList cList = cdb.SelectAll();
+            CityTblDB cdb = new();
+            CityTblList cList = cdb.SelectAll();
             //foreach (CityTbl c in cList)
             //    Console.WriteLine(c.CityName);
 
@@ -24,28 +24,36 @@ namespace Test
             //int x = cdb.SaveChanges();
             //Console.WriteLine($"{x} rows inserted");
 
+            //cdb.Delete(cList.Last());
+            //int y = cdb.SaveChanges();
+            //Console.WriteLine($"{y} rows deleted");
 
-            //DiseaseOrIssuesTblDB ddb = new();
-            //DiseaseOrIssuesTblList dList = ddb.SelectAll();
-            //foreach (DiseaseOrIssuesTbl d in dList)
-            //    Console.WriteLine(d.Disease);
 
-            //DiseaseOrIssuesTbl diseaseToUpdate = dList[10];
+            DiseaseOrIssuesTblDB doidb = new();
+            DiseaseOrIssuesTblList doiList = doidb.SelectAll();
+            //foreach (DiseaseOrIssuesTbl doi in doiList)
+            //    Console.WriteLine(doi.Disease);
+
+            //DiseaseOrIssuesTbl diseaseToUpdate = doiList[10];
             //diseaseToUpdate.Disease += "ddd";
-            //ddb.Update(diseaseToUpdate);
-            //int y = ddb.SaveChanges();
+            //doidb.Update(diseaseToUpdate);
+            //int y = doidb.SaveChanges();
             //Console.WriteLine($"{y} rows were updated");
-            //DiseaseOrIssuesTbl myD = new DiseaseOrIssuesTbl() { Disease = "Fracture" };
-            //ddb.Insert(myD);
-            //int x = ddb.SaveChanges();
+            //DiseaseOrIssuesTbl myD = new DiseaseOrIssuesTbl() { Disease = "fracture" };
+            //doidb.Insert(myD);
+            //int x = doidb.SaveChanges();
             //Console.WriteLine($"{x} rows inserted");
-            //foreach (DiseaseOrIssuesTbl d in dList)
-            //    Console.WriteLine(d.Disease);
+            //foreach (DiseaseOrIssuesTbl doi in doiList)
+            //    Console.WriteLine(doi.Disease);
+
+            //doidb.Delete(doiList.Last());
+            //int y = doidb.SaveChanges();
+            //Console.WriteLine($"{y} rows deleted");
 
 
 
-            //AnimalTypeTblDB atdb = new();
-            //AnimalTypeTblList atList = atdb.SelectAll();
+            AnimalTypeTblDB atdb = new();
+            AnimalTypeTblList atList = atdb.SelectAll();
             //foreach (AnimalTypeTbl at in atList)
             //    Console.WriteLine(at.Type);
 
@@ -59,6 +67,9 @@ namespace Test
             //atdb.Insert(myAni);
             //int x = atdb.SaveChanges();
             //Console.WriteLine($"{x} rows inserted");
+            //atdb.Delete(atList.Last());
+            //int y = atdb.SaveChanges();
+            //Console.WriteLine($"{y} rows deleted");
 
 
 
@@ -67,8 +78,9 @@ namespace Test
             //foreach (PersonTbl p in pList)
             //{
             //    Console.WriteLine(p.FirstName);
-            //    Console.WriteLine(p.FamilyName);
-            //    Console.WriteLine(p.City.CityName);
+            //    //Console.WriteLine(p.FamilyName);
+            //    //Console.WriteLine(p.City.CityName);
+            //    Console.WriteLine(p.IsActive);
             //}
 
             //PersonTbl perToUpdate = pList[0];
@@ -82,10 +94,14 @@ namespace Test
             //int x = pdb.SaveChanges();
             //Console.WriteLine($"{x} rows inserted");
 
+            //pdb.Delete(pList.Last());
+            //int y = pdb.SaveChanges();
+            //Console.WriteLine($"{y} rows deleted");
 
 
-            //AiTblDB aidb = new();
-            //AiTblList aiList = aidb.SelectAll();
+
+            AiTblDB aidb = new();
+            AiTblList aiList = aidb.SelectAll();
             //foreach (AiTbl ai in aiList)
             //{
             //    Console.WriteLine(ai.Message);
@@ -108,10 +124,14 @@ namespace Test
             //int x = aidb.SaveChanges();
             //Console.WriteLine($"{x} rows inserted");
 
+            //aidb.Delete(aiList.Last());
+            //int y = aidb.SaveChanges();
+            //Console.WriteLine($"{y} rows deleted");
 
 
-            //AnimalTblDB adb = new();
-            //AnimalTblList aList = adb.SelectAll();
+
+            AnimalTblDB adb = new();
+            AnimalTblList aList = adb.SelectAll();
             //foreach (AnimalTbl a in aList)
             //{
             //    Console.WriteLine(a.BirthDate);
@@ -127,11 +147,15 @@ namespace Test
             //int x = adb.SaveChanges();
             //Console.WriteLine($"{x} rows inserted");
 
+            //adb.Delete(aList.Last());
+            //int y = adb.SaveChanges();
+            //Console.WriteLine($"{y} rows deleted");
+
 
 
             //Console.WriteLine("----------");
-            //DoctorTblDB ddb = new();
-            //DoctorTblList dList = ddb.SelectAll();
+            DoctorTblDB ddb = new();
+            DoctorTblList dList = ddb.SelectAll();
             //foreach (DoctorTbl d in dList)
             //{
             //    Console.WriteLine(d.FirstName);
@@ -160,11 +184,15 @@ namespace Test
             //int x = ddb.SaveChanges();
             //Console.WriteLine($"{x} rows inserted");
 
+            //ddb.Delete(dList.Last());
+            //int y = ddb.SaveChanges();
+            //Console.WriteLine($"{y} rows deleted");
+
 
 
             //Console.WriteLine("Owener:)");
-            //OwnerTblDB odb = new();
-            //OwnerTblList oList = odb.SelectAll();
+            OwnerTblDB odb = new();
+            OwnerTblList oList = odb.SelectAll();
             //foreach (OwnerTbl o in oList)
             //{
             //    Console.WriteLine(o.FamilyName + " " + o.City.CityName);
@@ -190,35 +218,37 @@ namespace Test
             //int x = odb.SaveChanges();
             //Console.WriteLine($"{x} rows inserted");
 
+            //odb.Delete(oList[oList.Count - 2]);
+            //int y = odb.SaveChanges();
+            //Console.WriteLine($"{y} rows deleted");
+
 
 
             ReviewTblDB rdb = new();
             ReviewTblList rList = rdb.SelectAll();
-            foreach (ReviewTbl r in rList)
-            {
-                Console.WriteLine(r);
-            }
+            //foreach (ReviewTbl r in rList)
+            //{
+            //    Console.WriteLine(r);
+            //}
             //ReviewTbl rToUpdate = rList[0];
             //rToUpdate.Description += "bb";
             //rdb.Update(rToUpdate);
             //int k = rdb.SaveChanges();
             //Console.WriteLine($"{k} rows were updated");
-            
-            //AiTbl mya = new AiTbl()
-            //{
-            //    IdPerson = new PersonTbl() { Id = 1 },////כעקרון היה צריך לעשות עם CITYLIST ולקחת ערך!! אבל בשביל הבדיקה זה בסדר
-            //    PromptTime = new DateTime(2026, 1, 12),
-            //    Message = "My message",
-            //    Response = "My response"
-            //};
-            //aidb.Insert(mya);
-            //int x = aidb.SaveChanges();
+
+            //ReviewTbl myR = new ReviewTbl() { IdOwner = oList[0] , Description = "yippie", Stars=5, DateOfComment = new DateTime(2025, 1, 1) };
+            //rdb.Insert(myR);
+            //int x = rdb.SaveChanges();
             //Console.WriteLine($"{x} rows inserted");
 
+            //rdb.Delete(rList.Last());
+            //int y = rdb.SaveChanges();
+            //Console.WriteLine($"{y} rows deleted");
 
 
-            //OwnersAnimalTblDB oadb = new();
-            //OwnersAnimalTblList oaList = oadb.SelectAll();
+
+            OwnersAnimalTblDB oadb = new();
+            OwnersAnimalTblList oaList = oadb.SelectAll();
             //foreach (OwnersAnimalTbl oa in oaList)
             //{
             //    Console.WriteLine(oa.Animal.Id);
@@ -228,11 +258,19 @@ namespace Test
             //oadb.Update(oaToUpdate);
             //int k = oadb.SaveChanges();
             //Console.WriteLine($"{k} rows were updated");
+            //OwnersAnimalTbl myoa = new OwnersAnimalTbl() { Owner = oList[1], Animal = aList[1] };
+            //oadb.Insert(myoa);
+            //int x = oadb.SaveChanges();
+            //Console.WriteLine($"{x} rows inserted");
+
+            //oadb.Delete(oaList.Last());
+            //int y = oadb.SaveChanges();
+            //Console.WriteLine($"{y} rows deleted");
 
 
 
-            //QueueTblDB qdb = new();
-            //QueueTblList qList = qdb.SelectAll();
+            QueueTblDB qdb = new();
+            QueueTblList qList = qdb.SelectAll();
             //foreach (QueueTbl q in qList)
             //{
             //    Console.WriteLine(q.Report);
@@ -243,10 +281,27 @@ namespace Test
             //int k = qdb.SaveChanges();
             //Console.WriteLine($"{k} rows were updated");
 
+            //QueueTbl myQueue = new QueueTbl()
+            //{
+            //    IdDoctor = dList[0],
+            //    IdOwnersAnimal = oaList[0],
+            //    IssueOrDisease = doiList[0],
+            //    QueueDate = new DateTime (2026,7,7),
+            //    QueueHour = "10:30",
+            //    Report = "all is well"
+            //};
+            //qdb.Insert(myQueue);
+            //int x = qdb.SaveChanges();
+            //Console.WriteLine($"{x} rows inserted");
+
+            //qdb.Delete(qList.Last());
+            //int y = qdb.SaveChanges();
+            //Console.WriteLine($"{y} rows deleted");
 
 
-            //ShiftsTblDB sdb = new();
-            //ShiftsTblList sList = sdb.SelectAll();
+
+            ShiftsTblDB sdb = new();
+            ShiftsTblList sList = sdb.SelectAll();
             //foreach (ShiftsTbl s in sList)
             //{
             //    Console.WriteLine(s.IdDoctor.Id);
@@ -256,8 +311,23 @@ namespace Test
             //sdb.Update(sToUpdate);
             //int k = sdb.SaveChanges();
             //Console.WriteLine($"{k} rows were updated");
+            //ShiftsTbl myShift = new ShiftsTbl()
+            //{
+            //    IdDoctor = dList[1],
+            //    ShiftDate = new DateTime(2024,4,4),
+            //    StartTime = "08:00",
+            //    EndTime = "16:00"
+            //};
+            //sdb.Insert(myShift);
+            //int x = sdb.SaveChanges();
+            //Console.WriteLine($"{x} rows inserted");
 
-            //DOC INSERT CHECK!!!!!!!!!!!!!
+            //sdb.Delete(sList.Last());
+            //int y = sdb.SaveChanges();
+            //Console.WriteLine($"{y} rows deleted");
+
+
+
             //עשיתי את השורה עם הליסט רק למי שיש SELECTBYID. זה בסדר??
             //animaltypeDB list?
             //מזה הדבר הזה למעלה בביס דב????????

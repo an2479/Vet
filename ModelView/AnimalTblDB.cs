@@ -44,7 +44,15 @@ namespace ModelView
 
         protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            AnimalTbl a = entity as AnimalTbl;
+
+            if (a != null)
+            {
+                string sqlStr = $"DELETE FROM AnimalTbl WHERE id=@pid";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@pid", a.Id));
+            }
         }
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
@@ -64,7 +72,7 @@ namespace ModelView
             AnimalTbl a = entity as AnimalTbl;
             if (a != null)
             {
-                string sqlStr = $"UPDATE AnimalTbl SET animalType=@cAnimalType, birthDate=@birthDate WHERE id=@id";
+                string sqlStr = $"UPDATE AnimalTbl SET animalType=@cAnimalType, birthDate=@cBirthDate WHERE id=@id";
 
                 command.CommandText = sqlStr;
                 command.Parameters.Add(new OleDbParameter("@cAnimalType", a.AnimalType.Id));

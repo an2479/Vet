@@ -25,6 +25,7 @@ namespace ModelView
             p.Tel = reader["tel"].ToString();
             p.City = CityTblDB.SelectById((int)reader["city"]);
             p.Email = reader["email"].ToString();
+            p.IsActive = Convert.ToBoolean(reader["isActive"]);
             base.CreateModel(entity);
             return p;
         }
@@ -47,7 +48,16 @@ namespace ModelView
 
         protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            PersonTbl p = entity as PersonTbl;
+
+            if (p != null)
+            {
+                string sqlStr = "UPDATE PersonTbl SET isActive=@isActive WHERE id=@id";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@isActive", false));
+                command.Parameters.Add(new OleDbParameter("@id", p.Id));
+            }
         }
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
@@ -55,13 +65,14 @@ namespace ModelView
             PersonTbl p = entity as PersonTbl;
             if (p != null)
             {
-                string sqlStr = $"Insert INTO PersonTbl (firstName,familyName,tel,city,email) VALUES (@cFirstName,@cFamilyName,@cTel,@City,@cEmail)";
+                string sqlStr = $"Insert INTO PersonTbl (firstName,familyName,tel,city,email,isActive) VALUES (@cFirstName,@cFamilyName,@cTel,@City,@cEmail,@cIsActive)";
                 command.CommandText = sqlStr;
                 command.Parameters.Add(new OleDbParameter("@cFirstName", p.FirstName));
                 command.Parameters.Add(new OleDbParameter("@cFamilyName", p.FamilyName));
                 command.Parameters.Add(new OleDbParameter("@cTel", p.Tel));
                 command.Parameters.Add(new OleDbParameter("@City", p.City.Id));
                 command.Parameters.Add(new OleDbParameter("@cEmail", p.Email));
+                command.Parameters.Add(new OleDbParameter("@cIsActive", p.IsActive));
             }
         }
 
@@ -70,7 +81,7 @@ namespace ModelView
             PersonTbl p = entity as PersonTbl;
             if (p != null)
             {
-                string sqlStr = $"UPDATE PersonTbl SET firstName=@cFirstName, familyName=@cFamilyName, tel=@cTel, city=@City, email=@cEmail WHERE id=@id";
+                string sqlStr = $"UPDATE PersonTbl SET firstName=@cFirstName, familyName=@cFamilyName, tel=@cTel, city=@City, email=@cEmail, isActive=@cIsActive WHERE id=@id";
 
                 command.CommandText = sqlStr;
                 command.Parameters.Add(new OleDbParameter("@cFirstName", p.FirstName));
@@ -78,6 +89,7 @@ namespace ModelView
                 command.Parameters.Add(new OleDbParameter("@cTel", p.Tel));
                 command.Parameters.Add(new OleDbParameter("@City", p.City.Id));
                 command.Parameters.Add(new OleDbParameter("@cEmail", p.Email));
+                command.Parameters.Add(new OleDbParameter("@cIsActive", p.IsActive));
                 command.Parameters.Add(new OleDbParameter("@id", p.Id));
             }
         }

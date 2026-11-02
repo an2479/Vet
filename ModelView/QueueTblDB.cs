@@ -48,12 +48,35 @@ namespace ModelView
 
         protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            QueueTbl q = entity as QueueTbl;
+
+            if (q != null)
+            {
+                string sqlStr = $"DELETE FROM QueueTbl WHERE id=@pid";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@pid", q.Id));
+            }
         }
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            QueueTbl q = entity as QueueTbl;
+
+            if (q != null)
+            {
+                string sqlStr = "INSERT INTO QueueTbl (idDoctor,idOwnersAnimal,issueOrDisease,queueDate,queueHour,report) " +
+                    "VALUES (@cIdDoctor,@cIdOwnersAnimal,@cIssueOrDisease,@cQueueDate,@cQueueHour,@cReport)";
+
+                command.CommandText = sqlStr;
+
+                command.Parameters.Add(new OleDbParameter("@cIdDoctor", q.IdDoctor.Id));
+                command.Parameters.Add(new OleDbParameter("@cIdOwnersAnimal", q.IdOwnersAnimal.Id));
+                command.Parameters.Add(new OleDbParameter("@cIssueOrDisease", q.IssueOrDisease.Id));
+                command.Parameters.Add(new OleDbParameter("@cQueueDate", q.QueueDate));
+                command.Parameters.Add(new OleDbParameter("@cQueueHour", q.QueueHour));
+                command.Parameters.Add(new OleDbParameter("@cReport", q.Report));
+            }
         }
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)

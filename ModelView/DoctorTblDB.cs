@@ -13,7 +13,7 @@ namespace ModelView
 
         public DoctorTblList SelectAll()
         {
-            command.CommandText = $" SELECT  PersonTbl.id, PersonTbl.email, PersonTbl.city, PersonTbl.tel, PersonTbl.familyName, PersonTbl.firstName" +
+            command.CommandText = $" SELECT  PersonTbl.id, PersonTbl.email, PersonTbl.city, PersonTbl.tel, PersonTbl.familyName, PersonTbl.firstName, PersonTbl.isActive" +
                                   $" FROM (PersonTbl INNER JOIN" +
                                   $" DoctorTbl ON PersonTbl.id = DoctorTbl.id)";
             DoctorTblList pLst = new DoctorTblList(base.Select());
@@ -61,6 +61,16 @@ namespace ModelView
                 string sqlStr = $"Insert INTO DoctorTbl (id) VALUES (@cId)";
                 command.CommandText = sqlStr;
                 command.Parameters.Add(new OleDbParameter("@cId", d.Id));
+            }
+        }
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            DoctorTbl o = entity as DoctorTbl;
+            if (o != null)
+            {
+                string sqlStr = $"Update PersonTbl SET isActive={false} WHERE id=@cId";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@cId", o.Id));
             }
         }
 
