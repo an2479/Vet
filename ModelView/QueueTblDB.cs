@@ -21,8 +21,8 @@ namespace ModelView
         {
             QueueTbl q = entity as QueueTbl;
             q.IdDoctor = DoctorTblDB.SelectById((int)reader["idDoctor"]);
-            q.IdOwnersAnimal = OwnersAnimalTblDB.SelectById((int)reader["id"]);
-            q.IssueOrDisease = DiseaseOrIssuesTblDB.SelectById((int)reader["id"]);
+            q.IdOwnersAnimal = OwnersAnimalTblDB.SelectById((int)reader["idOwnersAnimal"]);
+            q.IssueOrDisease = DiseaseOrIssuesTblDB.SelectById((int)reader["issueOrDisease"]);
             q.QueueDate = Convert.ToDateTime(reader["queueDate"]);
             q.QueueHour = reader["queueHour"].ToString();
             q.Report = reader["report"].ToString();

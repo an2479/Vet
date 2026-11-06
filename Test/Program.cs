@@ -14,15 +14,15 @@ namespace Test
             //    Console.WriteLine(c.CityName);
 
             //CityTbl cityToUpdate = cList[0];
-            //cityToUpdate.CityName += "aa";
+            //cityToUpdate.CityName += "kk";
             //cdb.Update(cityToUpdate);
             //int x = cdb.SaveChanges();
             //Console.WriteLine($"{x} rows were updated");
-            //////
+
             //CityTbl myCity = new CityTbl() { CityName = "Haifa" };
             //cdb.Insert(myCity);
-            //int x = cdb.SaveChanges();
-            //Console.WriteLine($"{x} rows inserted");
+            //int z = cdb.SaveChanges();
+            //Console.WriteLine($"{z} rows inserted");
 
             //cdb.Delete(cList.Last());
             //int y = cdb.SaveChanges();
@@ -34,8 +34,8 @@ namespace Test
             //foreach (DiseaseOrIssuesTbl doi in doiList)
             //    Console.WriteLine(doi.Disease);
 
-            //DiseaseOrIssuesTbl diseaseToUpdate = doiList[10];
-            //diseaseToUpdate.Disease += "ddd";
+            //DiseaseOrIssuesTbl diseaseToUpdate = doiList[0];
+            //diseaseToUpdate.Disease += "vv";
             //doidb.Update(diseaseToUpdate);
             //int y = doidb.SaveChanges();
             //Console.WriteLine($"{y} rows were updated");
@@ -47,8 +47,8 @@ namespace Test
             //    Console.WriteLine(doi.Disease);
 
             //doidb.Delete(doiList.Last());
-            //int y = doidb.SaveChanges();
-            //Console.WriteLine($"{y} rows deleted");
+            //int z = doidb.SaveChanges();
+            //Console.WriteLine($"{z} rows deleted");
 
 
 
@@ -58,7 +58,7 @@ namespace Test
             //    Console.WriteLine(at.Type);
 
             //AnimalTypeTbl aTypeToUpdate = atList[0];
-            //aTypeToUpdate.Type += "aaa";
+            //aTypeToUpdate.Type += "vv";
             //atdb.Update(aTypeToUpdate);
             //int q = atdb.SaveChanges();
             //Console.WriteLine($"{q} rows were updated");
@@ -73,23 +73,23 @@ namespace Test
 
 
 
-            //PersonTblDB pdb = new();
-            //PersonTblList pList = pdb.SelectAll();
-            //foreach (PersonTbl p in pList)
-            //{
-            //    Console.WriteLine(p.FirstName);
-            //    //Console.WriteLine(p.FamilyName);
-            //    //Console.WriteLine(p.City.CityName);
-            //    Console.WriteLine(p.IsActive);
-            //}
+            PersonTblDB pdb = new();
+            PersonTblList pList = pdb.SelectAll();
+            foreach (PersonTbl p in pList)
+            {
+                Console.WriteLine(p.FirstName);
+                //Console.WriteLine(p.FamilyName);
+                Console.WriteLine(p.City.CityName);
+                //Console.WriteLine(p.IsActive);
+            }
 
             //PersonTbl perToUpdate = pList[0];
-            //perToUpdate.FirstName += "aa";
+            //perToUpdate.FirstName += "vv";
             //pdb.Update(perToUpdate);
             //int l = pdb.SaveChanges();
             //Console.WriteLine($"{l} rows were updated");
 
-            //PersonTbl myp = new PersonTbl() { FirstName = "Hadas", FamilyName = "Drori", Tel = "053829666", City = new CityTbl() { Id = 1 }, Email = "hadas@gmail.com" };
+            //PersonTbl myp = new PersonTbl() { FirstName = "Hadas", FamilyName = "Drori", Tel = "053829666", City = cList[0], Email = "hadas@gmail.com", IsActive = true };
             //pdb.Insert(myp);
             //int x = pdb.SaveChanges();
             //Console.WriteLine($"{x} rows inserted");
@@ -108,14 +108,14 @@ namespace Test
             //}
 
             //AiTbl aiToUpdate = aiList[0];
-            //aiToUpdate.Message += "aa";
+            //aiToUpdate.Message += "vv";
             //aidb.Update(aiToUpdate);
             //int f = aidb.SaveChanges();
             //Console.WriteLine($"{f} rows were updated");
 
             //AiTbl mya = new AiTbl()
             //{
-            //    IdPerson = new PersonTbl() { Id = 1 },////כעקרון היה צריך לעשות עם CITYLIST ולקחת ערך!! אבל בשביל הבדיקה זה בסדר
+            //    IdPerson = pList[0],
             //    PromptTime = new DateTime(2026, 1, 12),
             //    Message = "My message",
             //    Response = "My response"
@@ -137,12 +137,12 @@ namespace Test
             //    Console.WriteLine(a.BirthDate);
             //}
             //AnimalTbl aToUpdate = aList[0];
-            //aToUpdate.BirthDate = new DateTime(2001, 1, 1);
+            //aToUpdate.BirthDate = new DateTime(2003, 3, 3);
             //adb.Update(aToUpdate);
             //int p = adb.SaveChanges();
             //Console.WriteLine($"{p} rows were updated");
 
-            //AnimalTbl myan = new AnimalTbl() { AnimalType = new AnimalTypeTbl() { Id = 1 }, BirthDate = new DateTime(2025, 1, 1) };
+            //AnimalTbl myan = new AnimalTbl() { AnimalType = atList[1], BirthDate = new DateTime(2025, 1, 1) };
             //adb.Insert(myan);
             //int x = adb.SaveChanges();
             //Console.WriteLine($"{x} rows inserted");
@@ -153,30 +153,25 @@ namespace Test
 
 
 
-            //Console.WriteLine("----------");
             DoctorTblDB ddb = new();
             DoctorTblList dList = ddb.SelectAll();
             //foreach (DoctorTbl d in dList)
             //{
-            //    Console.WriteLine(d.FirstName);
+            //    Console.WriteLine(d.FamilyName);
             //}
             //DoctorTbl dToUpdate = dList[0];
-            //dToUpdate.FamilyName += "aa";
+            //dToUpdate.FamilyName += "vv";
             //ddb.Update(dToUpdate);
             //int v = ddb.SaveChanges();
             //Console.WriteLine($"{v} rows were updated");
-            //foreach (DoctorTbl d in dList)
-            //{
-            //    Console.WriteLine(d.FamilyName);
-            //}
 
             //DoctorTbl mydoc = new DoctorTbl()
             //{
 
-            //    FirstName =" p.FirstName",
+            //    FirstName = " p.FirstName",
             //    FamilyName = "p.FamilyName",
             //    Tel = "p.Tel",
-            //    City = new CityTbl() { Id=2},
+            //    City = cList[0],
             //    Email = "p.Email"
             //};
 
@@ -190,7 +185,6 @@ namespace Test
 
 
 
-            //Console.WriteLine("Owener:)");
             OwnerTblDB odb = new();
             OwnerTblList oList = odb.SelectAll();
             //foreach (OwnerTbl o in oList)
@@ -199,7 +193,7 @@ namespace Test
             //}
 
             //OwnerTbl oToUpdate = oList[0];
-            //oToUpdate.FamilyName += "aa";
+            //oToUpdate.FamilyName += "vv";
             //odb.Update(oToUpdate);
             //int k = odb.SaveChanges();
             //Console.WriteLine($"{k} rows were updated");
@@ -210,15 +204,16 @@ namespace Test
             //    FirstName = "Elodi",
             //    FamilyName = "Maeev",
             //    Tel = "074918304",
-            //    City = new CityTbl() { Id = 2 },
-            //    Email = "e123@gmail.com"
+            //    City = cList[1],
+            //    Email = "e123@gmail.com",
+            //    IsActive = true
             //};
 
             //odb.Insert(myo);
             //int x = odb.SaveChanges();
             //Console.WriteLine($"{x} rows inserted");
 
-            //odb.Delete(oList[oList.Count - 2]);
+            //odb.Delete(oList.Last());
             //int y = odb.SaveChanges();
             //Console.WriteLine($"{y} rows deleted");
 
@@ -231,12 +226,12 @@ namespace Test
             //    Console.WriteLine(r);
             //}
             //ReviewTbl rToUpdate = rList[0];
-            //rToUpdate.Description += "bb";
+            //rToUpdate.Description += "vv";
             //rdb.Update(rToUpdate);
             //int k = rdb.SaveChanges();
             //Console.WriteLine($"{k} rows were updated");
 
-            //ReviewTbl myR = new ReviewTbl() { IdOwner = oList[0] , Description = "yippie", Stars=5, DateOfComment = new DateTime(2025, 1, 1) };
+            //ReviewTbl myR = new ReviewTbl() { IdOwner = oList[0], Description = "yippie", Stars = 5, DateOfComment = new DateTime(2025, 1, 1) };
             //rdb.Insert(myR);
             //int x = rdb.SaveChanges();
             //Console.WriteLine($"{x} rows inserted");
@@ -254,7 +249,7 @@ namespace Test
             //    Console.WriteLine(oa.Animal.Id);
             //}
             //OwnersAnimalTbl oaToUpdate = oaList[0];
-            //oaToUpdate.Animal.Id = 1;
+            //oaToUpdate.Animal.Id = 2;
             //oadb.Update(oaToUpdate);
             //int k = oadb.SaveChanges();
             //Console.WriteLine($"{k} rows were updated");
@@ -273,10 +268,10 @@ namespace Test
             QueueTblList qList = qdb.SelectAll();
             //foreach (QueueTbl q in qList)
             //{
-            //    Console.WriteLine(q.Report);
+            //    Console.WriteLine(q.IssueOrDisease.Id);
             //}
             //QueueTbl qToUpdate = qList[0];
-            //qToUpdate.Report += "aa";
+            //qToUpdate.Report += "vv";
             //qdb.Update(qToUpdate);
             //int k = qdb.SaveChanges();
             //Console.WriteLine($"{k} rows were updated");
@@ -286,7 +281,7 @@ namespace Test
             //    IdDoctor = dList[0],
             //    IdOwnersAnimal = oaList[0],
             //    IssueOrDisease = doiList[0],
-            //    QueueDate = new DateTime (2026,7,7),
+            //    QueueDate = new DateTime(2026, 7, 7),
             //    QueueHour = "10:30",
             //    Report = "all is well"
             //};
@@ -307,14 +302,14 @@ namespace Test
             //    Console.WriteLine(s.IdDoctor.Id);
             //}
             //ShiftsTbl sToUpdate = sList[0];
-            //sToUpdate.IdDoctor.Id = 5;
+            //sToUpdate.IdDoctor = dList[2];
             //sdb.Update(sToUpdate);
             //int k = sdb.SaveChanges();
             //Console.WriteLine($"{k} rows were updated");
             //ShiftsTbl myShift = new ShiftsTbl()
             //{
             //    IdDoctor = dList[1],
-            //    ShiftDate = new DateTime(2024,4,4),
+            //    ShiftDate = new DateTime(2024, 4, 4),
             //    StartTime = "08:00",
             //    EndTime = "16:00"
             //};
