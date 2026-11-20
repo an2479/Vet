@@ -44,11 +44,11 @@ namespace Test
             //int x = doidb.SaveChanges();
             //Console.WriteLine($"{x} rows inserted");
             //foreach (DiseaseOrIssuesTbl doi in doiList)
-            //    Console.WriteLine(doi.Disease);
+                //    Console.WriteLine(doi.Disease);
 
-            //doidb.Delete(doiList.Last());
-            //int z = doidb.SaveChanges();
-            //Console.WriteLine($"{z} rows deleted");
+                //doidb.Delete(doiList.Last());
+                //int z = doidb.SaveChanges();
+                //Console.WriteLine($"{z} rows deleted");
 
 
 
@@ -75,13 +75,13 @@ namespace Test
 
             PersonTblDB pdb = new();
             PersonTblList pList = pdb.SelectAll();
-            foreach (PersonTbl p in pList)
-            {
-                Console.WriteLine(p.FirstName);
-                //Console.WriteLine(p.FamilyName);
-                Console.WriteLine(p.City.CityName);
-                //Console.WriteLine(p.IsActive);
-            }
+            //foreach (PersonTbl p in pList)
+            //{
+            //    Console.WriteLine(p.FirstName);
+            //    //Console.WriteLine(p.FamilyName);
+            //    Console.WriteLine(p.City.CityName);
+            //    //Console.WriteLine(p.IsActive);
+            //}
 
             //PersonTbl perToUpdate = pList[0];
             //perToUpdate.FirstName += "vv";
