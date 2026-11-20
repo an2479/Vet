@@ -10,8 +10,6 @@ namespace API.Controllers
     public class ValuesController : ControllerBase
     {
         [HttpGet]
-        [ActionName("CitySelector")]
-
         public CityTblList SelectAllCities()
         {
             CityTblDB db = new CityTblDB();
@@ -20,7 +18,6 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [ActionName("AnimalTypeSelector")]
         public AnimalTypeTblList SelectAllAnimalTypes()
         {
             AnimalTypeTblDB db = new AnimalTypeTblDB();
@@ -29,7 +26,6 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [ActionName("DiseaseOrIssuesSelector")]
         public DiseaseOrIssuesTblList SelectAllDiseaseOrIssuess()
         {
             DiseaseOrIssuesTblDB db = new DiseaseOrIssuesTblDB();
@@ -38,7 +34,6 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [ActionName("PersonSelector")]
         public PersonTblList SelectAllPersons()
         {
             PersonTblDB db = new PersonTblDB();
@@ -47,7 +42,6 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [ActionName("AiSelector")]
         public AiTblList SelectAllAi()
         {
             AiTblDB db = new AiTblDB();
@@ -56,7 +50,6 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [ActionName("ReviewSelector")]
         public ReviewTblList SelectAllReviews()
         {
             ReviewTblDB db = new ReviewTblDB();
@@ -65,7 +58,6 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [ActionName("OwnersAnimalSelector")]
         public OwnersAnimalTblList SelectAllOwnersAnimals()
         {
             OwnersAnimalTblDB db = new OwnersAnimalTblDB();
@@ -74,7 +66,6 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [ActionName("QueueSelector")]
         public QueueTblList SelectAllQueues()
         {
             QueueTblDB db = new QueueTblDB();
@@ -83,7 +74,6 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [ActionName("ShiftsSelector")]
         public ShiftsTblList SelectAllShifts()
         {
             ShiftsTblDB db = new ShiftsTblDB();
@@ -92,7 +82,6 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [ActionName("AnimalSelector")]
         public AnimalTblList SelectAllAnimals()
         {
             AnimalTblDB db = new AnimalTblDB();
@@ -101,7 +90,6 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [ActionName("OwnerSelector")]
         public OwnerTblList SelectAllOwners()
         {
             OwnerTblDB db = new OwnerTblDB();
@@ -110,7 +98,6 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [ActionName("DoctorSelector")]
         public DoctorTblList SelectAllDoctors()
         {
             DoctorTblDB db = new DoctorTblDB();
