@@ -212,5 +212,116 @@ namespace API.Controllers
             int x = db.SaveChanges();
             return x;
         }
+
+        [HttpDelete("{x}")]
+        public int DeleteACity(int x)
+        {
+            CityTblDB db = new CityTblDB();
+            db.Delete(new CityTbl() { Id = x });
+            int y = db.SaveChanges();
+            return y;
+        }
+
+        [HttpDelete("{x}")]
+        public int DeleteAnAnimalType(int x)
+        {
+            AnimalTypeTblDB db = new AnimalTypeTblDB();
+            db.Delete(new AnimalTbl() { Id = x});
+            int y = db.SaveChanges();
+            return y;
+        }
+ 
+        [HttpDelete("{x}")]
+        public int DeleteADiseaseOrIssues(int x)
+        {
+            DiseaseOrIssuesTblDB db = new DiseaseOrIssuesTblDB();
+            db.Delete(new DiseaseOrIssuesTbl() { Id = x });
+            int y = db.SaveChanges();
+            return y;
+        }
+
+        [HttpDelete("{x}")]
+        public int DeleteAPerson(int x)
+        {
+            PersonTblDB db = new PersonTblDB();
+            PersonTbl p = db.SelectAll().Find(z => z.Id == x);
+            db.Delete(p);
+            int y = db.SaveChanges();
+            return y;
+        }
+
+        [HttpDelete("{x}")]
+        public int DeleteAnAi(int x)
+        {
+            AiTblDB db = new AiTblDB();
+            db.Delete(new AiTbl() { Id = x });
+            int y = db.SaveChanges();
+            return y;
+        }
+
+        [HttpDelete("{x}")]
+        public int DeleteAReview(int x)
+        {
+            ReviewTblDB db = new ReviewTblDB();
+            db.Delete(new ReviewTbl() { Id = x });
+            int y = db.SaveChanges();
+            return y;
+        }
+
+        [HttpDelete("{x}")]
+        public int DeleteAnOwnersAnimal(int x)
+        {
+            OwnersAnimalTblDB db = new OwnersAnimalTblDB();
+            db.Delete(new OwnersAnimalTbl() { Id = x });
+            int y = db.SaveChanges();
+            return y;
+        }
+
+        [HttpDelete("{x}")]
+        public int DeleteAQueue(int x)
+        {
+            QueueTblDB db = new QueueTblDB();
+            db.Delete(new QueueTbl() { Id = x });
+            int y = db.SaveChanges();
+            return y;
+        }
+
+        [HttpDelete("{x}")]
+        public int DeleteAShift(int x)
+        {
+            ShiftsTblDB db = new ShiftsTblDB();
+            db.Delete(new ShiftsTbl() { Id = x });
+            int y = db.SaveChanges();
+            return y;
+        }
+
+        [HttpDelete("{x}")]
+        public int DeleteAnAnimal(int x)
+        {
+            AnimalTblDB db = new AnimalTblDB();
+            db.Delete(new AnimalTbl() { Id = x });
+            int y = db.SaveChanges();
+            return y;
+        }
+
+        [HttpDelete("{x}")]
+        public int DeleteAnOwner(int x)
+        {
+            OwnerTblDB db = new OwnerTblDB();
+            OwnerTbl o = db.SelectAll().Find(z => z.Id == x);
+            db.Delete(o);
+            int y = db.SaveChanges();
+            return y;
+        }
+
+        [HttpDelete("{x}")]
+        public int DeleteADoctor(int x)
+        {
+            DoctorTblDB db = new DoctorTblDB();
+            DoctorTbl d = db.SelectAll().Find(z => z.Id == x);
+            db.Delete(d);
+            int y = db.SaveChanges();
+            return y;
+        }
     }
 }

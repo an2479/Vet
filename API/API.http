@@ -32,3 +32,27 @@ GET {{API_HostAddress}}/api/values/SelectAllCities
 GET {{API_HostAddress}}/api/values/SelectAllPersons
 
 ###
+
+GET {{API_HostAddress}}/api/values/SelectAllAi
+
+###
+
+GET {{API_HostAddress}}/api/values/SelectAllAnimals
+
+###
+
+GET {{API_HostAddress}}/api/values/SelectAllCities
+
+###
+
+GET {{API_HostAddress}}/api/values/SelectAllCities
+
+###
+
+GET {{API_HostAddress}}/api/values/SelectAllCities
+
+###
+
+GET {{API_HostAddress}}/api/values/SelectAllDiseaseOrIssuess
+
+###
