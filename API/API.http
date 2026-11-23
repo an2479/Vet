@@ -56,3 +56,59 @@ GET {{API_HostAddress}}/api/values/SelectAllCities
 GET {{API_HostAddress}}/api/values/SelectAllDiseaseOrIssuess
 
 ###
+
+GET {{API_HostAddress}}/api/values/SelectAllAi
+
+###
+
+POST {{API_HostAddress}}/api/values/InsertACity
+Content-Type: application/json
+
+{
+  //CityTbl
+}
+
+###
+
+GET {{API_HostAddress}}/api/values/SelectAllCities
+
+###
+
+@x=0
+DELETE {{API_HostAddress}}/api/values/DeleteACity/{{x}}
+
+###
+
+POST {{API_HostAddress}}/api/values/InsertACity
+Content-Type: application/json
+
+{
+  //CityTbl
+}
+
+###
+
+POST {{API_HostAddress}}/api/values/InsertACity
+Content-Type: application/json
+
+{
+  //CityTbl
+}
+
+###
+
+DELETE {{API_HostAddress}}/api/values/DeleteACity/{{x}}
+
+###
+
+GET {{API_HostAddress}}/api/values/SelectAllCities
+
+###
+
+DELETE {{API_HostAddress}}/api/values/DeleteAnOwnersAnimal/{{x}}
+
+###
+
+DELETE {{API_HostAddress}}/api/values/DeleteAnOwnersAnimal/{{x}}
+
+###
