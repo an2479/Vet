@@ -15,6 +15,7 @@ namespace ApiInterface
         public Apiservice()
         {
             uri = "http://localhost:5054";
+            //uri = "https://368w39n5-5054.euw.devtunnels.ms/swagger/v1/swagger.json";
             client = new HttpClient();
         }
 

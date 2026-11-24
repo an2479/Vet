@@ -226,7 +226,7 @@ namespace API.Controllers
         public int DeleteAnAnimalType(int x)
         {
             AnimalTypeTblDB db = new AnimalTypeTblDB();
-            db.Delete(new AnimalTbl() { Id = x});
+            db.Delete(new AnimalTypeTbl() { Id = x});
             int y = db.SaveChanges();
             return y;
         }
